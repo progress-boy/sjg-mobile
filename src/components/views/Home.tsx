@@ -1,34 +1,86 @@
 import React, { Component } from "react";
-// import { Switch, NavBar, Checkbox, Radio, Input } from "antd-mobile";
+import {Carousel, Drawer} from "antd";
+import api from '../../utils/http';
 
-// import "./css/common.css";
+import "../css/common.css";
 import "../css/home.css";
+import {Link} from "react-router-dom";
 
-const print = function (e: any) {};
+
 class Home extends Component {
-    state = {};
-    setValue(val: any) {}
+    state = {
+        open: false
+    }
+
+    showDrawer = () => {
+        this.setState({
+            open: true
+        })
+    };
+
+    onClose = () => {
+        this.setState({
+            open: false
+        })
+    };
+
+    getComment = () => {
+        const fetchData = async () => {
+            try {
+                // 发送GET请求
+                const response = await api.get('/api/data');
+                console.log(response.data);
+            } catch (error) {
+                console.error('请求失败', error);
+            }
+        };
+        fetchData();
+    }
+
+    getCarsData=() => {
+        api.get('/api1/cars').then( //不走代理的请求
+            response=>{console.log('成功了',response.data);},
+            error=>{console.log('失败了',error)}
+        )
+    }
+
     render() {
         return (
             <div className="page flex-col">
-                {/*<img*/}
-                {/*    className="image_1"*/}
-                {/*    src={*/}
-                {/*        "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0c5c22da876bc43738dc057aaf3d8cff8e27df3bcafa09b9bd57e036c2de77be"*/}
-                {/*    }*/}
-                {/*/>*/}
+                <Drawer title="Basic Drawer" placement="right" onClose={this.onClose} open={this.state.open}>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </Drawer>
                 <img
                     className="image_2"
                     src={
                         "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng7f6ce35c5b0e24f028a306bfa990a296fcb8c0abb9fabadd5c5225b0be397ef2"
                     }
                 />
-                <img
-                    className="image_3"
-                    src={
-                        "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf0e7c37209e3456d9f99c4ebc3bcb0d2af6bd34892924b2f933900ce84e2fa6a"
-                    }
-                />
+                <Carousel autoplay dotPosition="bottom">
+                    <div className="image_3">
+                        <img
+                            src={
+                                "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf0e7c37209e3456d9f99c4ebc3bcb0d2af6bd34892924b2f933900ce84e2fa6a"
+                            }
+                        />
+                    </div>
+                    <div className="image_3">
+                        <img
+                            src={
+                                "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf0e7c37209e3456d9f99c4ebc3bcb0d2af6bd34892924b2f933900ce84e2fa6a"
+                            }
+                        />
+                    </div>
+                    <div className="image_3">
+                        <img
+                            src={
+                                "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf0e7c37209e3456d9f99c4ebc3bcb0d2af6bd34892924b2f933900ce84e2fa6a"
+                            }
+                        />
+                    </div>
+                </Carousel>
                 <div className="section_1 flex-row">
                     <div className="image-text_1 flex-row justify-between">
                         <span className="text-group_1">立即測算</span>
@@ -401,29 +453,9 @@ class Home extends Component {
                             src={
                                 "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngc98bb3c49e88dbf4f2885bb902a89ba35221dd06a6f86d2a236f5867b62ffaae"
                             }
+                            onClick={this.showDrawer}
                         />
                     </div>
-                    {/*<div className="group_11 flex-row">*/}
-                    {/*    <span className="text_27">12:48</span>*/}
-                    {/*    <img*/}
-                    {/*        className="thumbnail_5"*/}
-                    {/*        src={*/}
-                    {/*            "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng8ce7767a969f0a87db754c9e45a3e7a4dcead05688664c56b6305e19b5138508"*/}
-                    {/*        }*/}
-                    {/*    />*/}
-                    {/*    <img*/}
-                    {/*        className="image_11"*/}
-                    {/*        src={*/}
-                    {/*            "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng24a9cb48613dfde137b950490561a5c9fbb06064fc57f8da8f17281c9f55564b"*/}
-                    {/*        }*/}
-                    {/*    />*/}
-                    {/*</div>*/}
-                    {/*<img*/}
-                    {/*    className="thumbnail_6"*/}
-                    {/*    src={*/}
-                    {/*        "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng92d71d13da58ba4887551315bf83a1d7044dd8e56d5d54f8f479185caa02c6e2"*/}
-                    {/*    }*/}
-                    {/*/>*/}
                 </div>
                 <div className="section_14 flex-col">
                     <div className="grid_1 flex-row">
@@ -530,25 +562,7 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className="section_15 flex-col">
-                    <img
-                        className="image_14"
-                        src={
-                            "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng9b62dde203867ccd4598803779e7d535d75b973e6d60cbf4354c5ea7e9d4a8f1"
-                        }
-                    />
-                    <img
-                        className="image_15"
-                        src={
-                            "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0432b315c772116b0007480158e25ab4f94a35f4ae45ae678d0d58fe986277e7"
-                        }
-                    />
-                    <img
-                        className="image_16"
-                        src={
-                            "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng03d636b315f0f8344a94d81f4f0f956d68f7ade70c2fa9c567351dc1ac4c6b68"
-                        }
-                    />
-                    <div className="block_4 flex-col">
+                    <div className="block_4 flex-col" onClick={() => {console.log("aaaaaaaaaaaaaaaaaa")}}>
                         <img
                             className="label_4"
                             src={
@@ -594,6 +608,55 @@ class Home extends Component {
                                     "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng0a01a90488c5748a766b607fc2c802a01c05ecf99adb6f6e9b889a99640f0a1a"
                                 }
                             />
+                        </div>
+                        <div className="a_section_12 flex-row">
+                            <div className="a_group_10 flex-row">
+                                <Link className="a_image-text_3 flex-col" to={"/about"}>
+                                    <img
+                                        className="a_label_4"
+                                        src={
+                                            "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngf7903f2801ecac2a66d6500a01f9b14639d44a141d9724fe01dea8c879b9ba9f"
+                                        }
+                                    />
+                                    <span className="a_text-group_3">关于我们</span>
+                                </Link>
+                            </div>
+                            <Link className="a_group_11 flex-col" to="/ockn">
+                                <div className="a_box_6 flex-col" />
+                                <span className="a_text_15">玄機知識</span>
+                                <img
+                                    className="a_label_5"
+                                    src={
+                                        "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng7c7f888e64515d859c45e5f45006d45d30b46a3c51e091ba4c453f3284a4a54e"
+                                    }
+                                />
+                            </Link>
+                            <img
+                                className="a_image_4"
+                                src={
+                                    "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng4a153726e9d3ec717982dfeff14e71d75816fc9505e065c8e560ce6d1d304277"
+                                }
+                            />
+                            <Link className="a_group_12 flex-col" to="/cart">
+                                <div className="a_block_4 flex-col" />
+                                <span className="a_text_16">購物車</span>
+                                <img
+                                    className="a_label_6"
+                                    src={
+                                        "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPng93d709e9caba5ea132d6781a92e31a69661a60fcc8ec92d3bbce85709d088db2"
+                                    }
+                                />
+                            </Link>
+                            <Link className="a_group_13 flex-col" to="/me">
+                                <div className="a_box_7 flex-col" />
+                                <span className="a_text_17">我的</span>
+                                <img
+                                    className="a_label_7"
+                                    src={
+                                        "https://lanhu.oss-cn-beijing.aliyuncs.com/SketchPngbed92a2c3178ba2feae4acec4493163b61537f1095b6952af181defcef341d70"
+                                    }
+                                />
+                            </Link>
                         </div>
                     </div>
                 </div>

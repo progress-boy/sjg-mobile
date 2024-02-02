@@ -18,8 +18,8 @@
 }
 
 .image_3 {
-    width: 340px;
-    height: 212px;
+    width: 410px;
+    height: 240px;
     align-self: center;
     margin-top: 34px;
 }
@@ -1200,10 +1200,9 @@
 .text_19 {
     overflow-wrap: break-word;
     color: rgba(249, 220, 192, 1);
-    font-size: 104px;
+    font-size: 34px;
     letter-spacing: -0.30000001192092896px;
     font-family: STSongti-TC-Bold;
-    font-weight: NaN;
     text-align: left;
     white-space: nowrap;
     line-height: 145px;
@@ -1231,7 +1230,6 @@
     font-size: 20px;
     letter-spacing: -0.30000001192092896px;
     font-family: STSongti-TC-Bold;
-    font-weight: NaN;
     text-align: left;
     white-space: nowrap;
     line-height: 28px;
@@ -1251,7 +1249,6 @@
     color: rgba(35, 40, 37, 1);
     font-size: 14px;
     font-family: STSongti-TC-Regular;
-    font-weight: NaN;
     text-align: left;
     line-height: 26px;
     margin-top: 13px;
@@ -1276,7 +1273,6 @@
     color: rgba(35, 40, 37, 1);
     font-size: 13px;
     font-family: STSongti-TC-Bold;
-    font-weight: NaN;
     text-align: left;
     white-space: nowrap;
     line-height: 18px;
@@ -1288,7 +1284,6 @@
     color: rgba(124, 123, 121, 1);
     font-size: 13px;
     font-family: STSongti-TC-Regular;
-    font-weight: NaN;
     text-align: left;
     white-space: nowrap;
     line-height: 18px;
@@ -1311,10 +1306,9 @@
 .text_23 {
     overflow-wrap: break-word;
     color: rgba(249, 220, 192, 1);
-    font-size: 104px;
+    font-size: 34px;
     letter-spacing: -0.30000001192092896px;
     font-family: STSongti-TC-Bold;
-    font-weight: NaN;
     text-align: left;
     white-space: nowrap;
     line-height: 145px;
@@ -1342,7 +1336,6 @@
     font-size: 20px;
     letter-spacing: -0.30000001192092896px;
     font-family: STSongti-TC-Bold;
-    font-weight: NaN;
     text-align: left;
     white-space: nowrap;
     line-height: 28px;
@@ -1362,7 +1355,6 @@
     color: rgba(35, 40, 37, 1);
     font-size: 14px;
     font-family: STSongti-TC-Regular;
-    font-weight: NaN;
     text-align: left;
     line-height: 26px;
     margin-top: 13px;
@@ -1387,7 +1379,6 @@
     color: rgba(35, 40, 37, 1);
     font-size: 13px;
     font-family: STSongti-TC-Bold;
-    font-weight: NaN;
     text-align: left;
     white-space: nowrap;
     line-height: 18px;
@@ -1399,7 +1390,6 @@
     color: rgba(124, 123, 121, 1);
     font-size: 13px;
     font-family: STSongti-TC-Regular;
-    font-weight: NaN;
     text-align: left;
     white-space: nowrap;
     line-height: 18px;
@@ -1457,6 +1447,9 @@
     width: 414px;
     margin-top: 9px;
     padding: 1px 17px 1px 17px;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-between;*/
 }
 
 .image_12 {
@@ -1849,27 +1842,6 @@
     padding: 12px 174px 17px 174px;
 }
 
-.image_14 {
-    width: 66px;
-    height: 6px;
-}
-
-.image_15 {
-    position: absolute;
-    left: 0;
-    top: 34px;
-    width: 29px;
-    height: 212px;
-}
-
-.image_16 {
-    position: absolute;
-    left: 385px;
-    top: 34px;
-    width: 29px;
-    height: 212px;
-}
-
 .block_4 {
     position: absolute;
     left: 362px;
@@ -1894,7 +1866,6 @@
     color: rgba(254, 254, 253, 1);
     font-size: 16px;
     font-family: STSongti-TC-Bold;
-    font-weight: NaN;
     text-align: right;
     line-height: 22px;
     align-self: center;
